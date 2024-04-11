@@ -1,6 +1,10 @@
 export default function Accueil() {
     return (
-        <h1>Voici l'accueil</h1>
+        <body>
+            <main>
+                <h1>ZIZI</h1>
+            </main>
+        </body>
     );
   }
   
