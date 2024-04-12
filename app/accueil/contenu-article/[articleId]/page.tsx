@@ -65,7 +65,7 @@ export default function Article () {
                                 src='/villa-come.webp'
                                 width={340}
                                 height={265}
-                                alt="Mathis.Guerin"
+                                alt="Villa Lac Côme"
                             />
                             <p>Villa du Lac de Côme</p>
                         </div>
@@ -74,9 +74,18 @@ export default function Article () {
                                 src='/trasimene-villa.jpg'
                                 width={340}
                                 height={265}
-                                alt="Mathis.Guerin"
+                                alt="Villa Lac Trasimène"
                             />
                             <p>Villa du Lac de Trasimène</p>
+                        </div>
+                        <div className="text-2xl my-5 py-5 border-b-2 border-marron">
+                            <Image className="mx-auto transition duration-500 ease-in-out hover:brightness-75"
+                                src='/lement-villa.webp'
+                                width={340}
+                                height={265}
+                                alt="Villa Lac Lément"
+                            />
+                            <p>Villa du Lac Lément</p>
                         </div>
                     </div>
                 </div>
@@ -94,7 +103,8 @@ export default function Article () {
                             height={60}
                             alt="Mathis.Guerin"
                         />
-                        <div className="text-left">                                <p className="text-white font-bold transition duration-500 ease-in-out hover:brightness-50">Mathis.Guerin</p>
+                        <div className="text-left">                                
+                        <p className="text-white font-bold transition duration-500 ease-in-out hover:brightness-50">Mathis.Guerin</p>
                         <p className="text-slate-300 font-thin">Superbe villa, la photo est juste sublime.</p>
                         </div>
                         <div className="flex flex-col items-center">
@@ -122,7 +132,7 @@ export default function Article () {
                         </div>
                         <div className="flex flex-col items-center">
                             <Image 
-                                className=" transition duration-500 ease-in-out hover:brightness-50"
+                                className="ml-12 transition duration-500 ease-in-out hover:brightness-50"
                                 src='/thumbs-up.svg'
                                 width={30}
                                 height={30}                                    
