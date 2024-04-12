@@ -3,8 +3,8 @@ import Image from "next/image";
 export default function Accueil() {
     return (
         <body>
-            <main className="container mx-auto">
-                <section className="ml-10 flex justify-between">
+            <main className="container ml-4 py-11">
+                <section className="flex justify-between">
                     <article className="w-[880px] h-[732px] bg-beige py-11">
                         <div className="relative">
                             <a href="/accueil/contenu-article/1">
@@ -43,7 +43,7 @@ export default function Accueil() {
                             <h1 className="text-white text-5xl ml-10 mt-14">Villa de LaVerde del Montigio</h1>
                         </div>
                     </article>
-                    <div className="bg-marron w-1/3 mr-10">
+                    <div className="bg-marron w-1/3 relative left-20">
                         <div className="border-b-2 border-gray-700">
                             <h3 className="text-white text-center text-2xl py-5">Commentaires</h3>
                         </div>
