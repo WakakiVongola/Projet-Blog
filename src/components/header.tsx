@@ -24,7 +24,7 @@ export const Header = () => {
             {/* Login */}
                 <Dialog>
                     <DialogTrigger asChild>
-                    <Image
+                    <Image className='transition duration-500 ease-in-out hover:scale-110'
                          src='/iconProfile.webp'
                         alt="Picture of the author"
                         width={100}
@@ -39,29 +39,29 @@ export const Header = () => {
                             <div className="grid gap-4 py-4">
                                 <div className="grid grid-cols-4 items-center gap-4">
                                     <Label htmlFor="mail" className="text-right">
-                                    Mail
+                                    E-Mail :
                                     </Label>
                                     <Input
                                     id="mail"
-                                    className="col-span-3"
+                                    className="col-span-3 shadow-2xl rounded-lg"
                                     />
                                 </div>
                                 <div className="grid grid-cols-4 items-center gap-4">
                                     <Label htmlFor="Password" className="text-right">
-                                        Password
+                                        Password :
                                     </Label>
                                     <Input
                                     id="Password"
-                                    className="col-span-3"
+                                    className="col-span-3 shadow-2xl rounded-lg"
                                     />
                                 </div>
                             </div>
                             <DialogFooter>
-                                <Button type="submit" className='hover:bg-marron'>Connexion</Button>   
+                                <Button type="submit" className='transition duration-500 ease-in-out hover:bg-[#2a2519] bg-marron rounded-lg hover:shadow-2xl hover:scale-105'>Connexion</Button>   
                                 {/* Inscription */}
                                 <Dialog>
                                     <DialogTrigger asChild>
-                                    <Button className='hover:bg-marron'>Créer un compte</Button>
+                                    <Button className='transition duration-500 ease-in-out hover:bg-[#2a2519] bg-marron rounded-lg hover:shadow-2xl hover:scale-105'>Créer un compte</Button>
                                     </DialogTrigger>
                                     <DialogContent className="sm:max-w-[425px] bg-blanc">
                                         <DialogHeader>
@@ -69,23 +69,23 @@ export const Header = () => {
                                         <DialogTitle className='text-center p-2'>Créer un Compte</DialogTitle></div>
                                         </DialogHeader>
                                     <div className='flex flex-col'>
-                                        <p className='mx-auto m-2'>Pseudo</p>
-                                        <input type='text' placeholder='Votre pseudo' className='mx-auto bg-white rounded-full p-2'/>
+                                        <p className='mx-auto m-2'>Votre Pseudo :</p>
+                                        <input type='text' placeholder='Pseudo' className='mx-auto bg-white rounded-lg p-2 px-10 shadow-2xl'/>
                                     </div>
                                     <div className='flex flex-col'>
-                                        <p className='mx-auto m-2'>Votre email</p>
-                                        <input type='text' placeholder='Email' className='mx-auto bg-white rounded-full p-2'/>
+                                        <p className='mx-auto m-2'>Votre e-mail :</p>
+                                        <input type='text' placeholder='Email' className='mx-auto bg-white rounded-lg p-2 px-10 shadow-2xl'/>
                                     </div>
                                     <div className='flex flex-col'>
-                                        <p className='mx-auto m-2'>Password</p>
-                                        <input type='password' placeholder='Votre mot de passe' className='mx-auto bg-white rounded-full p-2'/>
+                                        <p className='mx-auto m-2'>Votre mot de passe :</p>
+                                        <input type='password' placeholder='Ex: Nfdo156¨^$ùDvV' className='mx-auto bg-white rounded-lg p-2 px-10 shadow-2xl'/>
                                     </div>
                                     <div className="grid w-full max-w-sm items-center gap-1.5 justify-center">
-                                        <label htmlFor="picture" className="text-center">Ajouter une photo de profile</label>
+                                        <label htmlFor="picture" className="text-center">Ajoutez une photo de profil</label>
                                         <input id="picture" type="file"/>
                                     </div>  
                                         <div className='flex justify-center'>
-                                        <DialogClose><Button type="submit" className='mx-auto hover:bg-marron'>Créer</Button></DialogClose>
+                                        <DialogClose><Button type="submit" className='mx-auto px-10 hover:bg-[#2a2519] bg-marron transition duration-500 ease-in-out hover:shadow-2xl hover:scale-105'>Créer</Button></DialogClose>
                                         </div>
                                     </DialogContent>
                                 </Dialog>
@@ -93,16 +93,16 @@ export const Header = () => {
                             </DialogFooter>
                         </DialogContent>
                     </Dialog>
-                <div id='TopNav' className='flex w-3/4 justify-between items-center'>
-                    <a href="/accueil/villa">Villa</a>
-                    <a href="https://twitter.com/?lang=fr">Maisson de campagne</a>
-                    <a href="https://twitter.com/?lang=fr">Cabane</a>
-                    <a href="https://twitter.com/?lang=fr">Appartement</a>
-                    <a href="/">A propos</a> 
+                <div id='TopNav' className='flex w-3/4 justify-between items-center text-xl'>
+                    <a className='transition duration-500 ease-in-out hover:text-gray-600 hover:scale-110' href="/accueil/villa">Villa</a>
+                    <a className='transition duration-500 ease-in-out hover:text-gray-600 hover:scale-110' href="https://twitter.com/?lang=fr">Maisson de campagne</a>
+                    <a className='transition duration-500 ease-in-out hover:text-gray-600 hover:scale-110' href="https://twitter.com/?lang=fr">Cabane</a>
+                    <a className='transition duration-500 ease-in-out hover:text-gray-600 hover:scale-110' href="https://twitter.com/?lang=fr">Appartement</a>
+                    <a className='transition duration-500 ease-in-out hover:text-gray-600 hover:scale-110' href="/">A propos</a> 
                 </div>
                 <Dialog>
                 <DialogTrigger>
-                    <Image className='transition duration-500 ease-in-out transform hover:scale-105'
+                    <Image className='transition duration-500 ease-in-out transform hover:scale-110'
                     src='/Loupe.svg'
                     alt=""
                     width={50}
