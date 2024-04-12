@@ -7,15 +7,15 @@ export default function Article () {
                 <h1 className="text-5xl">Villa De LaVerde Del Montigio</h1>
             </div>
             <section className="py-5 flex justify-between">
-                <div className="w-[850px]">
-                    <div className="ml-10 py-5">
-                        <Image className=""
+                <div className="w-[890px]">
+                    <div className="ml-10 py-5 shadow-2xl rounded-lg mr-5">
+                        <Image className="shadow-2xl rounded-lg mx-auto"
                             src="/Lac-de-come.jpg"
                             width={798}
                             height={499}
                             alt="Lac de Côme"
                             />
-                        <p className="my-10">
+                        <p className="my-10 mx-auto px-5">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
                             molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
                             numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
@@ -35,7 +35,7 @@ export default function Article () {
                             fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore 
                         </p>
                         <br/>
-                        <p>
+                        <p className="mx-auto px-5">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
                             molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
                             numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
@@ -57,11 +57,11 @@ export default function Article () {
                     </div>
                 </div>
 
-                <div className="bg-beige mr-10 my-5">
+                <div className="bg-beige mr-10 my-2 shadow-2xl rounded-lg">
                     <div className="text-center py-5">
                         <h1 className="font-semibold px-20 text-3xl">Poste recommandés:</h1>
-                        <div className="text-2xl my-5 py-5 border-b-2 border-marron">
-                            <Image className="mx-auto transition duration-500 ease-in-out hover:brightness-75"
+                        <div className="text-2xl my-5 py-5 border-b-2 border-[#92885b]">
+                            <Image className="mx-auto transition duration-500 ease-in-out hover:brightness-75 transform hover:scale-105 shadow-2xl rounded-lg"
                                 src='/villa-come.webp'
                                 width={340}
                                 height={265}
@@ -69,8 +69,8 @@ export default function Article () {
                             />
                             <p>Villa du Lac de Côme</p>
                         </div>
-                        <div className="text-2xl my-5 py-5 border-b-2 border-marron">
-                            <Image className="mx-auto transition duration-500 ease-in-out hover:brightness-75"
+                        <div className="text-2xl my-5 py-5 border-b-2 border-[#92885b]">
+                            <Image className="mx-auto transition duration-500 ease-in-out hover:brightness-75 transform hover:scale-105 shadow-2xl rounded-lg"
                                 src='/trasimene-villa.jpg'
                                 width={340}
                                 height={265}
@@ -78,8 +78,8 @@ export default function Article () {
                             />
                             <p>Villa du Lac de Trasimène</p>
                         </div>
-                        <div className="text-2xl my-5 py-5 border-b-2 border-marron">
-                            <Image className="mx-auto transition duration-500 ease-in-out hover:brightness-75"
+                        <div className="text-2xl my-5 py-5 border-b-2 border-[#92885b]">
+                            <Image className="mx-auto transition duration-500 ease-in-out hover:brightness-75 transform hover:scale-105 shadow-2xl rounded-lg"
                                 src='/lement-villa.webp'
                                 width={340}
                                 height={265}
@@ -92,8 +92,8 @@ export default function Article () {
 
             </section>
             <section className="py-10">
-                <div className="bg-marron w-1/2 h-96 relative ml-10">
-                    <div className="border-b-2 border-gray-700">
+                <div className="bg-marron w-[830px] h-96 relative ml-10 rounded-lg shadow-2xl">
+                    <div className="border-b-2 border-[#92885b]">
                         <h3 className="text-white text-center text-2xl py-5">Commentaires</h3>
                     </div>
                     <div className="flex items-center space-x-2 ml-5 py-5">

@@ -102,24 +102,24 @@ export const Header = () => {
                 </div>
                 <Dialog>
                 <DialogTrigger>
-                    <Image
+                    <Image className='transition duration-500 ease-in-out transform hover:scale-105'
                     src='/Loupe.svg'
                     alt=""
                     width={50}
                     height={50}/>
                 </DialogTrigger>
-                <DialogContent>
+                <DialogContent className='bg-blanc p-10'>
                     <DialogHeader>
-                    <DialogTitle>Que cherchez vous ?</DialogTitle>
+                    <DialogTitle className='text-gray-900 pb-3'>Que cherchez vous ?</DialogTitle>
                     <DialogDescription>
                         <form> 
-                            <label className='text-black'> Recherche : </label>
+                            <label className=''></label>
                             <input
                             type='text'
                             name='recherche'
-                            className=' text-black'
+                            className='rounded-md text-black pr-20 mr-2'
                             />
-                        <DialogClose> <button className='m-5 border-b-2 border-black text-black'>Recherche</button></DialogClose>
+                        <DialogClose className='transition duration-500 ease-in-out transform hover:scale-105'> <button className='text-gray-900 ml-2 mb-2 duration-300 hover:border-b-2 border-black'>Recherche</button></DialogClose>
                         </form>
                     </DialogDescription>
                     </DialogHeader>
@@ -129,7 +129,7 @@ export const Header = () => {
             </div>
             <div className='flex justify-center border-y-2 border-black p-8'>
                 <a href="/accueil">
-                <Image
+                <Image className='transition duration-500 ease-in-out hover:brightness-90 transform hover:scale-105'
                     src='/Logo.svg'
                     alt="Picture of the author"
                     width={250}
