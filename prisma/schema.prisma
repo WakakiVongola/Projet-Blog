@@ -12,3 +12,30 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model Publication {
+  id         String      @id @default(auto()) @map("_id") @db.ObjectId
+  slug       String      @unique
+  titre      String
+  contenu    String
+  image      String      // Champ pour stocker l'URL de l'image
+  auteur     Utilisateur @relation(fields: [auteurId], references: [id])
+  auteurId   String      @db.ObjectId
+  commentaires Commentaire[]
+}
+ 
+model Utilisateur {
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  email        String        @unique
+  pseudo       String?
+  publications Publication[] // Ajout du champ opposé dans Utilisateur
+  role         String
+  motDePasse   String   
+}
+ 
+model Commentaire {
+  id             String      @id @default(auto()) @map("_id") @db.ObjectId
+  commentaire    String
+  publication    Publication @relation(fields: [publicationId], references: [id])
+  publicationId  String      @db.ObjectId
+}
