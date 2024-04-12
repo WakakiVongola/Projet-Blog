@@ -95,7 +95,7 @@ export const Header = () => {
                     </Dialog>
                 <div id='TopNav' className='flex w-3/4 justify-between items-center text-xl'>
                     <a className='transition duration-500 ease-in-out hover:text-gray-600 hover:scale-110' href="/accueil/villa">Villa</a>
-                    <a className='transition duration-500 ease-in-out hover:text-gray-600 hover:scale-110' href="https://twitter.com/?lang=fr">Maisson de campagne</a>
+                    <a className='transition duration-500 ease-in-out hover:text-gray-600 hover:scale-110' href="https://twitter.com/?lang=fr">Maison de campagne</a>
                     <a className='transition duration-500 ease-in-out hover:text-gray-600 hover:scale-110' href="https://twitter.com/?lang=fr">Cabane</a>
                     <a className='transition duration-500 ease-in-out hover:text-gray-600 hover:scale-110' href="https://twitter.com/?lang=fr">Appartement</a>
                     <a className='transition duration-500 ease-in-out hover:text-gray-600 hover:scale-110' href="/">A propos</a> 
