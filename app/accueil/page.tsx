@@ -76,7 +76,7 @@ export default function Accueil() {
                                 src='/bruno.jpg'
                                 width={60}
                                 height={60}
-                                alt="Mathis.Guerin"
+                                alt="Bruno.Dernier"
                             />
                             <div className="text-left">
                                 <p className="text-white font-bold transition duration-500 ease-in-out hover:brightness-50">Bruno.Dernier</p>
