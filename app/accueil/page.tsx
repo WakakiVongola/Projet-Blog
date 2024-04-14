@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ArrowSmUpIcon } from '@heroicons/react/outline';
 
 export default function Accueil() {
     return (
@@ -94,6 +95,22 @@ export default function Accueil() {
                                 <p className="ml-12 text-white font-thin">40</p>
                             </div>
                         </div>
+                            {/* Formulaire pour ajouter un commentaire */}
+                            <form className="ml-5 mr-5 mb-5">
+                                <div className="flex items-center space-x-2">
+                                    <input
+                                        type="text"
+                                        placeholder="Ajoutez un commentaire"
+                                        className="bg-transparent flex-grow py-1 px-3 rounded-xl border border-blanc text-blanc"
+                                    />
+                                    <button
+                                        type="submit"
+                                        className="text-white hover:text-beige bg-blue-700 px-1 rounded-xl transition duration-500 ease-in-out hover:scale-105"
+                                    >
+                                        <ArrowSmUpIcon className="h-7 w-7" />
+                                    </button>
+                                </div>
+                            </form>
                     </div>
                 </section>
             </main>
