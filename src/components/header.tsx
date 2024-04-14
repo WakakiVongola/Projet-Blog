@@ -18,6 +18,23 @@ import {
 
 
 export const Header = () => {
+    const [data, setData] = useState({
+        Pseudo : '',
+        Email : '',
+        Password: ''
+    })
+
+    const takeInfo = async (e:any) => {
+        e.preventDefault()
+        const response = await fetch('/api/register', {
+            method:'POST',
+            headers : {
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({data})
+        })
+    }
+
     return (
         <header className='bg-blanc'>
             <div className='flex justify-between items-center p-5'>
@@ -70,22 +87,22 @@ export const Header = () => {
                                         </DialogHeader>
                                     <div className='flex flex-col'>
                                         <p className='mx-auto m-2'>Votre Pseudo :</p>
-                                        <input type='text' placeholder='Pseudo' className='mx-auto bg-white rounded-lg p-2 px-10 shadow-2xl'/>
+                                        <input value={data.Pseudo} onChange={(e) => {setData({...data, Pseudo:e.target.value})}}  type='text' placeholder='Pseudo' className='mx-auto bg-white rounded-lg p-2 px-10 shadow-2xl'/>
                                     </div>
                                     <div className='flex flex-col'>
                                         <p className='mx-auto m-2'>Votre e-mail :</p>
-                                        <input type='text' placeholder='Email' className='mx-auto bg-white rounded-lg p-2 px-10 shadow-2xl'/>
+                                        <input value={data.Email} onChange={(e) => {setData({...data, Email:e.target.value})}} type='text' placeholder='Email' className='mx-auto bg-white rounded-lg p-2 px-10 shadow-2xl'/>
                                     </div>
                                     <div className='flex flex-col'>
                                         <p className='mx-auto m-2'>Votre mot de passe :</p>
-                                        <input type='password' placeholder='Ex: Nfdo156¨^$ùDvV' className='mx-auto bg-white rounded-lg p-2 px-10 shadow-2xl'/>
+                                        <input  value={data.Password} onChange={(e) => {setData({...data, Password:e.target.value})}} type='password' placeholder='Ex: Nfdo156¨^$ùDvV' className='mx-auto bg-white rounded-lg p-2 px-10 shadow-2xl'/>
                                     </div>
                                     <div className="grid w-full max-w-sm items-center gap-1.5 justify-center">
                                         <label htmlFor="picture" className="text-center">Ajoutez une photo de profil</label>
                                         <input id="picture" type="file"/>
                                     </div>  
                                         <div className='flex justify-center'>
-                                        <DialogClose><Button type="submit" className='mx-auto px-10 hover:bg-[#2a2519] bg-marron transition duration-500 ease-in-out hover:shadow-2xl hover:scale-105'>Créer</Button></DialogClose>
+                                        <DialogClose><Button type="submit" className='mx-auto px-10 hover:bg-[#2a2519] bg-marron transition duration-500 ease-in-out hover:shadow-2xl hover:scale-105' onClick={takeInfo}>Créer</Button></DialogClose>
                                         </div>
                                     </DialogContent>
                                 </Dialog>
