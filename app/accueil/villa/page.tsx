@@ -10,18 +10,16 @@ const Page = () =>{
  
   if (error) return <div>failed to load</div>
   if (isLoading) return <div>loading...</div>
-
   const obj = data.data;
+  console.log(data.data)
  
   // render data
-  return <div>hello {obj.titre}!</div>
+  return <h1>helloee {obj.titre}  !</h1>
 }
-
-export default Page;
 
 export default function Villa() {
     return (
-            <h1>Voici les villas</h1>
+      Page()
     );
   }
   
