@@ -3,30 +3,20 @@ import connect from "@/src/outils/db";
 // import  bcrypt from "bcryptjs"
 import { pseudoRandomBytes } from "crypto";
 import { NextResponse } from "next/server";
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient();
 
 export const POST = async (request: any) => {
-    const { pseudo, email, password } = await request.json();
+  const body= await request.json();
+  const { Pseudo, Email, Password } = body.data
   
-    await connect();
-  
-    const existingUser = await User.findOne({ email });
-  
-    if (existingUser) {
-      return new NextResponse("Email is already in use", { status: 400 });
+  if(!Pseudo || !Email || !Password)
+    {
+        return new NextResponse("Missing Titre,Image or Contenu",{status:400})
     }
   
-    const newUser = new User({
-        pseudo,
-        email,
-      password
-    });
-  
-    try {
-      await newUser.save();
-      return new NextResponse("User is registered", { status: 200 });
-    } catch (err: any) {
-      return new NextResponse(err, {
-        status: 500,
-      });
-    }
+   const user=await prisma.Utilisateur.create({
+    data:{email:Email, pseudo:Pseudo, motDePasse:Password, role:"user"}
+   })
+   return NextResponse.json(user)
   };

@@ -1,29 +1,6 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-rgb: 199, 199, 166;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb))
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-  :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
-  }
+  @tailwind components;
+  @tailwind utilities;
 
   @layer base {
     :root {
@@ -86,5 +63,14 @@ body {
       --border: 217.2 32.6% 17.5%;
       --input: 217.2 32.6% 17.5%;
       --ring: 212.7 26.8% 83.9%;
+    }
+  }
+
+  @layer base {
+    * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-background text-foreground;
     }
   }
