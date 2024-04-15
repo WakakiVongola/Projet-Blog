@@ -34,6 +34,7 @@ const page = () => {
                             height={40} 
                         />
                     </div>
+                    {/* Gérer le nombre de vue
                     <div>
                         <p>20</p>
                         <Image
@@ -42,7 +43,7 @@ const page = () => {
                             width={40}
                             height={40}
                         />
-                    </div>
+                    </div> */}
                     <div>
                         <p>500</p>
                         <Image
