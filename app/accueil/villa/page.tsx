@@ -1,6 +1,8 @@
 export default function Villa() {
     return (
-        <h1>Voici les villas</h1>
+            <body className="bg-blanc">
+                <h1>Voici les villas</h1>
+            </body>
     );
   }
   

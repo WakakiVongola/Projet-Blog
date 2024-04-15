@@ -3,7 +3,7 @@ import { ArrowSmUpIcon } from '@heroicons/react/outline';
 
 export default function Accueil() {
     return (
-        <body>
+        <body className="bg-blanc">
             <main className="container ml-4 py-11">
                 <section className="flex justify-between">
                     <article className="w-[880px] h-[732px] bg-beige py-11 rounded-lg shadow-2xl">

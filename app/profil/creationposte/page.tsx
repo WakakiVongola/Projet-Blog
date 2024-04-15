@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 
 export default function Villa() {
     return (
-    <div >
+    <div className="bg-blanc">
         <div className="flex">
             <div className="w-[50%] p-9">
                 <textarea id="Titre" className="text-center resize-none block p-2.5 w-full bg-black text-white text-3xl h-14 " placeholder="Titre du poste"></textarea>
@@ -25,6 +25,5 @@ export default function Villa() {
             <Button className="flex justify-center bg-blanc underline text-2xl" variant="ghost">Ajouter le poste</Button>
         </div>
     </div>
-
     );
   }
