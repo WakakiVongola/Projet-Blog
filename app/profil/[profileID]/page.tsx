@@ -6,7 +6,7 @@ const page = () => {
         const items = [];
         for (let i = 0; i < 3; i++) {
             items.push(
-                <div key={i} className='bg-marron text-white flex col justify-between items-center text-center p-2'>
+                <div key={i} className='bg-marron text-white flex col justify-between items-center text-center p-2 mx-2 rounded-sm'>
                     <div className='flex flex-row items-center justify-center gap-2'>
                         <Image
                             src='/Lac-de-come.jpg'
@@ -37,7 +37,7 @@ const page = () => {
                     <div>
                         <p>20</p>
                         <Image
-                            src='/oeil.png'
+                            src='/oeil.svg'
                             alt="symbole oeil"
                             width={40}
                             height={40}
@@ -46,7 +46,7 @@ const page = () => {
                     <div>
                         <p>500</p>
                         <Image
-                            src='/commentaire.png'
+                            src='/commentaire.svg'
                             alt="symbole commentaire"
                             width={40}
                             height={40}
@@ -54,7 +54,7 @@ const page = () => {
                     </div>
                     <div>
                         <Image
-                            src='/edit.png'
+                            src='/editer.svg'
                             alt="Editer"
                             width={40}
                             height={40} 
@@ -62,7 +62,7 @@ const page = () => {
                     </div>
                     <div>
                         <Image
-                            src='/bin.png'
+                            src='/poubelle.svg'
                             alt="Supprimer"
                             width={40}
                             height={40} 
