@@ -95,10 +95,11 @@ export const Header = () => {
                                         <p className='mx-auto m-2'>Votre mot de passe :</p>
                                         <input  value={data.Password} onChange={(e) => {setData({...data, Password:e.target.value})}} type='password' placeholder='Ex: Nfdo156¨^$ùDvV' className='mx-auto bg-white rounded-lg p-2 px-10 shadow-2xl'/>
                                     </div>
-                                    <div className="grid w-full max-w-sm items-center gap-1.5 justify-center">
+                                    {/* Ajouter une photo de profil */}
+                                    {/* <div className="grid w-full max-w-sm items-center gap-1.5 justify-center">
                                         <label htmlFor="picture" className="text-center">Ajoutez une photo de profil</label>
                                         <input id="picture" type="file"/>
-                                    </div>  
+                                    </div>   */}
                                         <div className='flex justify-center'>
                                         <DialogClose><Button type="submit" className='mx-auto px-10 hover:bg-[#2a2519] bg-marron transition duration-500 ease-in-out hover:shadow-2xl hover:scale-105' onClick={takeInfo}>Créer</Button></DialogClose>
                                         </div>

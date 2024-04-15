@@ -1,6 +1,7 @@
 import "./globals.css";
-import Header from '@/src/components/header';
-import React from 'react';
+import Header from '@/src/components/header'
+
+const inter = Inter({ subsets: ["latin"] });
 
 
 export default function RootLayout({
@@ -13,6 +14,7 @@ export default function RootLayout({
       <body className="bg-blanc">
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )
