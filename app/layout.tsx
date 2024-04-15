@@ -1,8 +1,6 @@
 import "./globals.css";
 import Header from '@/src/components/header'
-
-const inter = Inter({ subsets: ["latin"] });
-
+import Footer from "@/src/components/footer";
 
 export default function RootLayout({
   children,

@@ -1,6 +1,3 @@
-import Layout from "./layout";
-import Header from "@/src/components/header";
-
 export default function Home() {
     return (
             <body className="bg-blanc">
