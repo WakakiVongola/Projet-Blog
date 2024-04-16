@@ -14,13 +14,31 @@ import {
   } from "@/components/ui/dialog"
   import { Input } from "@/components/ui/input"
   import { Label } from "@/components/ui/label"
+  import { Link } from 'lucide-react'
+  import {useRouter} from "next/navigation"
+  import {signIn} from "next-auth/react"
+  
 
 export const Header = () => {
+
     const [data, setData] = useState({
         Pseudo : '',
         Email : '',
         Password: ''
     })
+    const router=useRouter()
+    const takeLogin = async (e:any) => {
+        e.preventDefault()
+        signIn('credentials',{
+            ...data,
+            redirect:false,
+        }).then(authenticated => {
+            router.push("/dashboard")
+        }).catch((error) => {
+            throw new Error(error)
+        })
+
+    }
 
     const takeInfo = async (e:any) => {
         e.preventDefault()
@@ -57,7 +75,7 @@ export const Header = () => {
                                     E-Mail :
                                     </Label>
                                     <Input
-                                    id="mail"
+                                    id="email" name="Email" type="email" required value={data.Email} onChange={(e) => {setData({...data, Email:e.target.value})}}
                                     className="col-span-3 shadow-2xl rounded-lg"
                                     />
                                 </div>
@@ -66,13 +84,12 @@ export const Header = () => {
                                         Password :
                                     </Label>
                                     <Input
-                                    id="Password"
-                                    className="col-span-3 shadow-2xl rounded-lg"
+                                     id="password" name="Password" type="password" required value={data.Password} onChange={(e) => {setData({...data, Password:e.target.value})}}
                                     />
                                 </div>
                             </div>
                             <DialogFooter>
-                                <Button type="submit" className='transition duration-500 ease-in-out hover:bg-[#2a2519] bg-marron rounded-lg hover:shadow-2xl hover:scale-105'>Connexion</Button>   
+                                <Button type="submit" onClick={takeLogin} className='transition duration-500 ease-in-out hover:bg-[#2a2519] bg-marron rounded-lg hover:shadow-2xl hover:scale-105'>Connexion</Button>   
                                 {/* Inscription */}
                                 <Dialog>
                                     <DialogTrigger asChild>
@@ -85,15 +102,15 @@ export const Header = () => {
                                         </DialogHeader>
                                     <div className='flex flex-col'>
                                         <p className='mx-auto m-2'>Votre Pseudo :</p>
-                                        <input value={data.Pseudo} onChange={(e) => {setData({...data, Pseudo:e.target.value})}}  type='text' placeholder='Pseudo' className='mx-auto bg-white rounded-lg p-2 px-10 shadow-2xl'/>
+                                        <input name="Pseudo" value={data.Pseudo} onChange={(e) => {setData({...data, Pseudo:e.target.value})}}  type='text' placeholder='Pseudo' className='mx-auto bg-white rounded-lg p-2 px-10 shadow-2xl'/>
                                     </div>
                                     <div className='flex flex-col'>
                                         <p className='mx-auto m-2'>Votre e-mail :</p>
-                                        <input value={data.Email} onChange={(e) => {setData({...data, Email:e.target.value})}} type='text' placeholder='Email' className='mx-auto bg-white rounded-lg p-2 px-10 shadow-2xl'/>
+                                        <input name="Email"value={data.Email} onChange={(e) => {setData({...data, Email:e.target.value})}} type='text' placeholder='Ex:exemple@gmail.com' className='mx-auto bg-white rounded-lg p-2 px-10 shadow-2xl'/>
                                     </div>
                                     <div className='flex flex-col'>
                                         <p className='mx-auto m-2'>Votre mot de passe :</p>
-                                        <input  value={data.Password} onChange={(e) => {setData({...data, Password:e.target.value})}} type='password' placeholder='Ex: Nfdo156¨^$ùDvV' className='mx-auto bg-white rounded-lg p-2 px-10 shadow-2xl'/>
+                                        <input  name="Paswword" value={data.Password} onChange={(e) => {setData({...data, Password:e.target.value})}} type='password' placeholder='Ex:Nfdo156¨^$ùDvV' className='mx-auto bg-white rounded-lg p-2 px-10 shadow-2xl'/>
                                     </div>
                                     {/* Ajouter une photo de profil */}
                                     {/* <div className="grid w-full max-w-sm items-center gap-1.5 justify-center">
