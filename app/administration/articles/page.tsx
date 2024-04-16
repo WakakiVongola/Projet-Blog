@@ -2,7 +2,8 @@ import Image from "next/image";
 
 export default function articles() {
     return (
-            <body className="bg-blanc">
+        <div className="bg-blanc">
+            <main className="bg-blanc">
                 {/*Header*/}
                 <div className='flex flex-row items-center justify-between border-b-2 border-black'>
                     <div className="ml-10">
@@ -30,6 +31,7 @@ export default function articles() {
                         </div>
                     </div>
                 </div>
-            </body>
+            </main>
+        </div>
     );
 }

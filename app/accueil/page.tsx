@@ -11,7 +11,7 @@ export default function Accueil() {
 
     console.log(data);
 
-    const obj = data && data.data && data.data.length > 6 ? data.data[4] : null;
+    const obj = data && data.data && data.data.length > 6 ? data.data[0] : null;
 
     return (
             <main className="container ml-4 py-11">
