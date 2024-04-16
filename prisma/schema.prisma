@@ -23,6 +23,8 @@ model Publication {
   auteurId   String      @db.ObjectId
   commentaires Commentaire[]
   like       Int         @default(0)
+  dislike       Int         @default(0)
+
 }
  
 model Utilisateur {
