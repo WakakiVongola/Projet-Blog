@@ -17,9 +17,6 @@ const Page = () =>{
   return <h1>helloee {obj.titre}  !</h1>
 }
 
-export default function Villa() {
-    return (
-      Page()
-    );
-  }
+export default Page;
+
   
