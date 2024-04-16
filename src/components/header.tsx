@@ -14,10 +14,13 @@ import {
   } from "@/components/ui/dialog"
   import { Input } from "@/components/ui/input"
   import { Label } from "@/components/ui/label"
+<<<<<<< HEAD
   import { Link } from 'lucide-react'
   import {useRouter} from "next/navigation"
   import {signIn} from "next-auth/react"
   
+=======
+>>>>>>> e97667fc04a7d39ad5a98349b9b0885637fe2799
 
 export const Header = () => {
 

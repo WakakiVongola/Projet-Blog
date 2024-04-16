@@ -19,7 +19,7 @@ const config = {
     },
     extend: {
       colors: {
-        blanc: '#C6C6C7',
+        blanc: '#C7C7A6',
         beige: '#A49966',
         marron: '#363020',
         border: "hsl(var(--border))",

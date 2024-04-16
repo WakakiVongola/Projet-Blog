@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { ArrowSmUpIcon } from '@heroicons/react/outline';
 
-
 export default function Article () {
     return(
+        <div className="bg-blanc">
         <main className="flex flex-col">
             <div className="text-center py-5">
                 <h1 className="text-5xl">Villa De LaVerde Del Montigio</h1>
@@ -180,5 +180,6 @@ export default function Article () {
                 </div>
             </section>  
         </main>
+        </div>
     )
 }

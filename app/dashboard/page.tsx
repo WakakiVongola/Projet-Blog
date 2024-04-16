@@ -9,13 +9,12 @@ const DashboardPage = () => {
     onUnauthenticated() {
       // The user is not authenticated, handle it here.
       throw new Error('Not authenticated !')
-      
     },
     })
     return (
         <div>
             <h1>DashBoard Page</h1>
-            <p>Hi {session?.user?.name}</p>
+            <p>Hi {session?.user?.email}</p>
             <Link href="/logout">Logout Page</Link>
         </div>
     );
