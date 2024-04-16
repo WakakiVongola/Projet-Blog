@@ -10,7 +10,8 @@ export async function GET(params:any) {
             titre: true,
             contenu: true,
             image: true,
-            like : true
+            like : true,
+            dislike : true,
         }
     })
     return NextResponse.json({message: "ok", status: 200, data:postes})
