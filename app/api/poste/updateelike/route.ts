@@ -4,9 +4,9 @@ import { NextResponse } from 'next/server'
 const prisma = new PrismaClient();
 
 
-export async function DELETE(params:any) {
+export async function tt(params:any) {
     const postes = await prisma.publication.update({
-        data: { like: +1 },
+        data: { like : +1 },
         where: { slug: "64" },
     })
     return NextResponse.json({message: "ok", status: 200})

@@ -9,7 +9,8 @@ export async function GET(params:any) {
         select: {
             titre: true,
             contenu: true,
-            image: true
+            image: true,
+            like : true
         }
     })
     return NextResponse.json({message: "ok", status: 200, data:postes})
