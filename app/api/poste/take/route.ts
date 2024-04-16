@@ -6,9 +6,6 @@ const prisma = new PrismaClient();
 
 export async function GET(params:any) {
     const postes = await prisma.publication.findMany({
-        where: {
-            slug: "villa france",
-        },
         select: {
             titre: true,
             contenu: true,

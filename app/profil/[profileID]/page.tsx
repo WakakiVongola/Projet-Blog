@@ -1,8 +1,18 @@
 // page.tsx
+"use client"
 import React from 'react';
 import Image from 'next/image';
 
 const Page = () => {
+
+    const deletee = async (e:any) => {
+        e.preventDefault();
+        const response = await fetch('../api/poste/delete', {
+            method:'DELETE',
+        })
+
+    }
+
     const writeHello = () => {
         const items = [];
         for (let i = 0; i < 3; i++) {
@@ -58,6 +68,7 @@ const Page = () => {
                             alt="Supprimer"
                             width={40}
                             height={40} 
+                            onClick={deletee}
                         />
                     </div>
                 </div>

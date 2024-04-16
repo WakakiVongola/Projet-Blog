@@ -55,7 +55,7 @@ const InfoPoste = () => {
             </form>
         </div>
         <div className="flex justify-center">
-            <Button onClick={takeInfo} className="flex justify-center bg-blanc underline text-2xl" type="submit" variant="ghost"><a>Ajouter le poste</a></Button>
+            <a href="/"><Button onClick={takeInfo} className="flex justify-center bg-blanc underline text-2xl" type="submit" variant="ghost"></Button></a>
         </div>
     </div>
     );

@@ -10,8 +10,7 @@ const Page = () =>{
  
   if (error) return <div>failed to load</div>
   if (isLoading) return <div>loading...</div>
-  const obj = data.data;
-  console.log(data.data)
+  const obj = data.data[0];
  
   // render data
   return <h1>helloee {obj.titre}  !</h1>
