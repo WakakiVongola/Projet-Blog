@@ -11,14 +11,14 @@ export default function Accueil() {
 
     console.log(data);
 
-    const obj = data && data.data && data.data.length > 6 ? data.data[0] : null;
+    const obj = data && data.data && data.data.length > 0 ? data.data[0] : null;
 
     return (
             <main className="container ml-4 py-11">
                 <section className="flex justify-between">
                     <article className="w-[880px] h-auto bg-beige py-11 rounded-lg shadow-2xl">
                         <div className="relative">
-                            <a href="/accueil/contenu-article/1">
+                            <a href={obj && "/accueil/contenu-article/" + obj.titre}>
                             {obj && (
                                 <Image
                                     className="mx-auto transition duration-700 ease-in-out hover:brightness-75 rounded-lg transform hover:scale-95 shadow-2xl"
