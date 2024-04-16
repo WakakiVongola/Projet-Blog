@@ -22,14 +22,15 @@ model Publication {
   auteur     Utilisateur @relation(fields: [auteurId], references: [id])
   auteurId   String      @db.ObjectId
   commentaires Commentaire[]
+  like       Int         @default(0)
 }
  
 model Utilisateur {
   id           String        @id @default(auto()) @map("_id") @db.ObjectId
   email        String        @unique
-  pseudo       String?
-  publications Publication[] // Ajout du champ opposé dans Utilisateur
-  role         String
+  pseudo       String
+  publications Publication[] 
+  role         Role          @default(VIEWVER)
   motDePasse   String   
 }
  
@@ -38,4 +39,10 @@ model Commentaire {
   commentaire    String
   publication    Publication @relation(fields: [publicationId], references: [id])
   publicationId  String      @db.ObjectId
+}
+
+enum Role {
+  VIEWVER
+  CREATOR 
+  ADMIN
 }
