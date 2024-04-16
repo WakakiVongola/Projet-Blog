@@ -1,61 +1,38 @@
+"use client"
+
 import Image from "next/image";
 import { ArrowSmUpIcon } from '@heroicons/react/outline';
+import useSWR from "swr";
+import Link from "next/link";
+
+const fetcher = (...args:any) => fetch(...args).then(res => res.json());
 
 export default function Article () {
+    const { data, error, isLoading } = useSWR('/api/poste/take', fetcher);
+
+    console.log(data);
+
+    const obj = data && data.data && data.data.length > 0 ? data.data[1] : null;
+
     return(
         <div className="bg-blanc">
         <main className="flex flex-col">
             <div className="text-center py-5">
-                <h1 className="text-5xl">Villa De LaVerde Del Montigio</h1>
+                <h1 className="text-5xl">{obj?.titre}</h1>
             </div>
             <section className="py-5 flex justify-between">
                 <div className="w-[890px]">
                     <div className="ml-10 py-5 shadow-2xl rounded-lg mr-5">
-                        <Image className="shadow-2xl rounded-lg mx-auto"
-                            src="/Lac-de-come.jpg"
-                            width={798}
-                            height={499}
-                            alt="Lac de Côme"
-                            />
+                            <Image className="shadow-2xl rounded-lg mx-auto"
+                                src={obj?.image}
+                                width={798}
+                                height={499}
+                                alt="Lac de Côme"
+                                />
                         <p className="my-10 mx-auto px-5">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                            molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                            numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-                            optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-                            obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-                            nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-                            tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-                            quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos 
-                            sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
-                            recusandae alias error harum maxime adipisci amet laborum. Perspiciatis 
-                            minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit 
-                            quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur 
-                            fugiat, temporibus enim commodi iusto libero magni deleniti quod quam 
-                            consequuntur! Commodi minima excepturi repudiandae velit hic maxime
-                            doloremque. Quaerat provident commodi consectetur veniam similique ad 
-                            earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo 
-                            fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore 
+                            {obj?.contenu}
                         </p>
                         <br/>
-                        <p className="mx-auto px-5">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                            molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                            numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-                            optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-                            obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-                            nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-                            tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-                            quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos 
-                            sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
-                            recusandae alias error harum maxime adipisci amet laborum. Perspiciatis 
-                            minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit 
-                            quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur 
-                            fugiat, temporibus enim commodi iusto libero magni deleniti quod quam 
-                            consequuntur! Commodi minima excepturi repudiandae velit hic maxime
-                            doloremque. Quaerat provident commodi consectetur veniam similique ad 
-                            earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo 
-                            fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore 
-                        </p>
                     </div>
                 </div>
 

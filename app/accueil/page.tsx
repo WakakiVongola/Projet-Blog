@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ArrowSmUpIcon } from '@heroicons/react/outline';
 import useSWR from "swr";
+import Link from "next/link";
 
 const fetcher = (...args:any) => fetch(...args).then(res => res.json());
 
@@ -11,48 +12,28 @@ export default function Accueil() {
 
     console.log(data);
 
-    const obj = data && data.data && data.data.length > 0 ? data.data[0] : null;
+    const obj = data && data.data && data.data.length > 0 ? data.data[1] : null;
 
     return (
             <main className="container ml-4 py-11">
                 <section className="flex justify-between">
                     <article className="w-[880px] h-auto bg-beige py-11 rounded-lg shadow-2xl">
                         <div className="relative">
-                            <a href={obj && "/accueil/contenu-article/" + obj.titre}>
-                            {obj && (
-                                <Image
-                                    className="mx-auto transition duration-700 ease-in-out hover:brightness-75 rounded-lg transform hover:scale-95 shadow-2xl"
-                                    src={obj.image}
-                                    width={798}
-                                    height={499}
-                                    alt="Lac de Côme"
-                                />
-                            )}
-                            </a>
+                        <Link href={obj ? `/accueil/contenu-article/${obj.id}` : '#'}>
+                            <Image
+                                className="mx-auto transition duration-700 ease-in-out hover:brightness-75 rounded-lg transform hover:scale-95 shadow-2xl"
+                                src={obj?.image}
+                                width={798}
+                                height={499}
+                                alt="Lac de Côme"
+                            />
+                        </Link>
                         </div>
                         <div className="flex justify-between">
                             <div className="w-80 h-16 bg-marron flex items-center justify-center ml-10 mt-3.5 transition duration-500 ease-in-out rounded-lg">
                                 {obj && (
                                     <h2 className="text-4xl text-zinc-50 font-bold">{obj.titre}</h2>
                                 )}
-                            </div>
-                            <div className="flex mt-3.5 mr-10">
-                                <div className="bg-marron p-3 transition duration-500 ease-in-out rounded-lg transform hover:scale-105 hover:brightness-50">
-                                    <Image 
-                                        src='/thumbs-up.svg'
-                                        width={40}
-                                        height={40}
-                                        alt="Like"
-                                    />
-                                </div>
-                                <div className="bg-marron p-3 ml-5 transition duration-500 ease-in-out rounded-lg transform hover:scale-105 hover:brightness-50">
-                                    <Image 
-                                        src='/thumbs-down.svg'
-                                        width={40}
-                                        height={40}
-                                        alt="Dislike"
-                                    />
-                                </div>
                             </div>
                         </div>
                         <div>
@@ -78,16 +59,6 @@ export default function Accueil() {
                                 <p className="text-white font-bold transition duration-500 ease-in-out hover:brightness-50">Mathis.Guerin</p>
                                 <p className="text-slate-300 font-thin">Superbe villa, la photo est juste sublime.</p>
                             </div>
-                            <div className="flex flex-col items-center">
-                                <Image 
-                                    className="ml-12 transition duration-500 ease-in-out hover:brightness-50"
-                                    src='/thumbs-up.svg'
-                                    width={30}
-                                    height={30}
-                                    alt="Like"
-                                />
-                                <p className="ml-12 text-white font-thin">256</p>
-                            </div>
                         </div>
                         <div className="flex items-center space-x-2 ml-5 py-5">
                             <Image 
@@ -101,33 +72,8 @@ export default function Accueil() {
                                 <p className="text-white font-bold transition duration-500 ease-in-out hover:brightness-50">Bruno.Dernier</p>
                                 <p className="text-slate-300 font-thin">Ma maison est plus belle ;)</p>
                             </div>
-                            <div className="flex flex-col items-center">
-                                <Image 
-                                    className="ml-12 transition duration-500 ease-in-out hover:brightness-50"
-                                    src='/thumbs-up.svg'
-                                    width={30}
-                                    height={30}
-                                    alt="Like"
-                                />
-                                <p className="ml-12 text-white font-thin">40</p>
-                            </div>
                         </div>
                             {/* Formulaire pour ajouter un commentaire */}
-                            <form className="ml-5 mr-5 mb-5">
-                                <div className="flex items-center space-x-2">
-                                    <input
-                                        type="text"
-                                        placeholder="Ajoutez un commentaire"
-                                        className="bg-transparent flex-grow py-1 px-3 rounded-xl border border-blanc text-blanc"
-                                    />
-                                    <button
-                                        type="submit"
-                                        className="text-white hover:text-beige bg-blue-700 px-1 rounded-xl transition duration-500 ease-in-out hover:scale-105"
-                                    >
-                                        <ArrowSmUpIcon className="h-7 w-7" />
-                                    </button>
-                                </div>
-                            </form>
                     </div>
                 </section>
             </main>
