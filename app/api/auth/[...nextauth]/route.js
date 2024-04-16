@@ -12,20 +12,20 @@ export const authOptions = {
         CredentialsProvider({
             name:'credentials',
             credentials: {
-                email: { label: 'Email', type: 'text', placeholder: 'your email' },
-                password: { label: 'Password', type: 'password' },
+                Email: { label: 'Email', type: 'text', placeholder: 'your email' },
+                Password: { label: 'Password', type: 'password' },
               },
               async authorize(credentials){
 
                 //  Check to see if email and password are valid
-                if(!credentials.email || !credentials.password) {
-                    return null
+                if(!credentials.Email || !credentials.Password) {
+                    throw new Error("email ou password non valides")
                 }
 
                 // check to see if user exists
                 const user = await prisma.utilisateur.findUnique ({
                     where : {
-                        email:credentials.email
+                        email:credentials.Email
                     }
                 })
 
@@ -34,7 +34,7 @@ export const authOptions = {
                 }
 
                 // check to see if passwords match
-                const passwordsMatch = await bcrypt.compare(credentials.password, user.motDePasse)
+                const passwordsMatch = await bcrypt.compare(credentials.Password, user.motDePasse)
 
                 if(!passwordsMatch) {
                     return null;
