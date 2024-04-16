@@ -12,7 +12,7 @@ export default function Article () {
 
     console.log(data);
 
-    const obj = data && data.data && data.data.length > 0 ? data.data[1] : null;
+    const obj = data && data.data && data.data.length > 0 ? data.data[3] : null;
 
     return(
         <div className="bg-blanc">
@@ -35,8 +35,6 @@ export default function Article () {
                         <br/>
                     </div>
                 </div>
-
-
                 <div className="bg-beige mr-10 my-2 shadow-2xl rounded-lg flex flex-col">
                     <div className="text-center py-5">
                         <h1 className="font-semibold px-20 text-3xl">Postes recommandés:</h1>
