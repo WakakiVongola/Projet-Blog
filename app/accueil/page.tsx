@@ -10,16 +10,19 @@ export default function Accueil() {
     const { data, error, isLoading } = useSWR('/api/poste/take', fetcher);
 
     console.log(data);
+
+    const obj = data && data.data && data.data.length > 6 ? data.data[4] : null;
+
     return (
             <main className="container ml-4 py-11">
                 <section className="flex justify-between">
                     <article className="w-[880px] h-auto bg-beige py-11 rounded-lg shadow-2xl">
                         <div className="relative">
                             <a href="/accueil/contenu-article/1">
-                            {data && data.data && data.data.length > 0 && (
+                            {obj && (
                                 <Image
                                     className="mx-auto transition duration-700 ease-in-out hover:brightness-75 rounded-lg transform hover:scale-95 shadow-2xl"
-                                    src={data.data[0].image}
+                                    src={obj.image}
                                     width={798}
                                     height={499}
                                     alt="Lac de Côme"
@@ -29,8 +32,8 @@ export default function Accueil() {
                         </div>
                         <div className="flex justify-between">
                             <div className="w-80 h-16 bg-marron flex items-center justify-center ml-10 mt-3.5 transition duration-500 ease-in-out rounded-lg">
-                                {data && data.data && data.data.length > 0 && (
-                                    <h2 className="text-4xl text-zinc-50 font-bold">{data.data[0].titre}</h2>
+                                {obj && (
+                                    <h2 className="text-4xl text-zinc-50 font-bold">{obj.titre}</h2>
                                 )}
                             </div>
                             <div className="flex mt-3.5 mr-10">
@@ -53,8 +56,8 @@ export default function Accueil() {
                             </div>
                         </div>
                         <div>
-                            {data && data.data && data.data.length > 0 && (
-                                <h1 className="text-white text-5xl ml-10 mt-14">{data.data[0].contenu}</h1>
+                            {obj && (
+                                <h1 className="text-white text-5xl ml-10 mt-14">{obj.contenu}</h1>
                             )}
                         </div>
                     </article>
