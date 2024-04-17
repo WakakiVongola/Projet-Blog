@@ -12,12 +12,12 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/components/ui/dialog"
+    } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Link } from 'lucide-react'
 import { useRouter } from "next/navigation"
-import { signIn } from "next-auth/react"
+import { signIn,useSession } from "next-auth/react"
 import { PlusIcon } from '@heroicons/react/outline'; // Import de PlusIcon depuis HeroIcons v1
 
 export const Header = () => {
