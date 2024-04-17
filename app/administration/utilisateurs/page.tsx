@@ -1,6 +1,4 @@
 'use client'
-
-
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import useSWR from 'swr';
@@ -9,7 +7,7 @@ import useSWR from 'swr';
 const fetcher = (...args) => fetch(...args).then(res => res.json());
 
 export default function Utilisateurs() {
-  const { data, error, isLoading } = useSWR('/api/administration', fetcher);
+  const { data, error, isLoading } = useSWR('/api/user/take', fetcher);
 
   console.log(data);
 
@@ -49,16 +47,19 @@ export default function Utilisateurs() {
           {data && data.data && data.data.map((obj, index) => (
             <div key={index}>
               <div>
+                Pseudo :
                 {obj && (
                   <h2>{obj.pseudo}</h2>
                 )}
               </div>
               <div>
+                Email :
                 {obj && (
                   <h2>{obj.email}</h2>
                 )}
               </div>
               <div>
+                Rôle : 
                 {obj && (
                   <h2>{obj.role}</h2>
                 )}
