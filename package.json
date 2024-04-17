@@ -24,14 +24,14 @@
     "lucide-react": "^0.367.0",
     "next": "14.1.4",
     "next-auth": "^4.24.7",
-
     "next-s3-upload": "^0.3.4",
     "react": "^18.2.0",
     "react-dom": "^18",
     "react-modal": "^3.16.1",
     "swr": "^2.2.5",
     "tailwind-merge": "^2.2.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "use-router": "^0.4.2"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",

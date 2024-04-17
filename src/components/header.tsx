@@ -16,7 +16,7 @@ import {
   import { Label } from "@/components/ui/label"
   import { Link } from 'lucide-react'
   import {useRouter} from "next/navigation"
-  import {signIn} from "next-auth/react"
+  import {signIn, useSession} from "next-auth/react"
   
 
 export const Header = () => {

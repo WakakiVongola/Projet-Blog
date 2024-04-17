@@ -3,6 +3,7 @@ import  CredentialsProvider from "next-auth/providers/credentials"
 import bcrypt from "bcrypt"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { PrismaClient } from "@prisma/client"
+import { log } from "console"
 
 const prisma = new PrismaClient();
 
@@ -50,26 +51,26 @@ export const authOptions = {
     },
     secret: process.env.NEXTAUTH_SECRET,
     debug: process.env.NODE_ENV === 'development',
-    calbacks:{
-        async jwt({session, token, user}){
+    calbacks: {
+        async jwt({ token, user}){
+            console.log("jwt :"+user)
             if(user){
-                return{
-                    ...token,
-                    id: user.id,
-                    email: user.email,
-                    pseudo: user.pseudo,
-                    publication: user.publication,
-                    role: user.role
-                };
+            //     token.id = user.id
+            //     // token.email = user.email
+            //     // token.pseudo = user.pseudo
+            //     // //token.publications =user.publications
+            //     // token.role = user.role
+                
             }
             return token
         },
         async session({session, token, user}){
+            console.log("session"+ token)
             session.user.id = token.id
-            session.user.email = token.email
-            session.user.pseudo = token.pseudo
-            session.user.publication = token.publication
-            session.user.role = token.role
+            // session.user.email = token.email
+            // session.user.pseudo = token.pseudo
+            //session.user.publications = token.publications
+            // session.user.role = token.role
             return session
         }
     }
