@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image";
-import { ArrowSmUpIcon } from '@heroicons/react/outline';
 import useSWR from "swr";
 import Link from "next/link";
 
