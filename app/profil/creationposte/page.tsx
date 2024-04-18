@@ -2,11 +2,16 @@
 import { useEffect, useState } from 'react';
 import Image from "next/image";
 import { Button } from "@/components/ui/button"; // Assurez-vous d'importer Button correctement
-//import type { PutBlobResult } from '@vercel/blob';
+import type { PutBlobResult } from '@vercel/blob';
 import { useSession } from 'next-auth/react';
 import {useRouter} from "next/navigation"
+import useSWR from 'swr';
+
+
+const fetcher = (...args:any) => fetch(...args).then(res => res.json());
 
 const InfoPoste = () => {
+
     const router = useRouter()
     const {data:session, status} = useSession({
         required: true,
@@ -15,6 +20,14 @@ const InfoPoste = () => {
            router.push("/accueil")
         },
     })
+    const checkUserr = async (e:any) => {
+        e.preventDefault();
+        const response = await fetch(`/api/user/takeOne`, {
+            method:'POST',
+            body:"tt@gmail.com"
+        });
+    }
+
     const [img, setImg] = useState("");
     const [data, setData] = useState({
         Titre:'',
@@ -51,6 +64,16 @@ const InfoPoste = () => {
             router.push("/profil/1")
         } catch (error) {
             alert("Le poste n'a pas été ajouter");
+        }
+    }
+
+    const { data:userData, error, isLoading } = useSWR('/api/user/takeOne', fetcher);
+
+    if(isLoading == false){
+        if(userData.data.role == "VIEWVER"){
+            console.log("role de ce user " + userData.data.role)
+            alert("Tu n'as pas l'accès")
+            router.push("/accueil")
         }
     }
 
