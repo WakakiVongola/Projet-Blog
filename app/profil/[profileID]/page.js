@@ -147,9 +147,8 @@ const Page = ({params}) => {
                         <a className="text-marron font-bold transition hover:brightness-50" href='/dashboard'>{session?.user?.email}</a>
                     </div>   
                         {/* bouton dashboard */}
-                    <div className="flex items-center justify-auto bg-beige border border-black container w-[10%] m-10
-                    hover:bg-marron">
-                        <a href='/dashboard'><button className="font-semibold text-white text-center " >Dashboard</button></a>
+                    <div className="bg-beige border border-black container w-auto hover:bg-marron">
+                        <a href='/dashboard' className="font-semibold text-white text-center ">Dashboard</a>
                     </div>
                 </div>
                 <div className='border-b-2 border-black'>
