@@ -21,6 +21,7 @@ export default function ArticleInfo( {params} ) {
 
     return (   
         <div className="bg-blanc">
+        <main className="flex flex-col">
                 {article && (
                     <div className="text-center py-5">
                         <h1 className="text-5xl">{article.titre}</h1>
@@ -126,8 +127,9 @@ export default function ArticleInfo( {params} ) {
                         </button>
                     </form>
                 </div>
-            </section>  
-                </div>
+            </section> 
+            </main> 
+            </div>
     )
 
 }

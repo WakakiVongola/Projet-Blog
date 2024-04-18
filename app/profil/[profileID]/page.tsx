@@ -98,6 +98,9 @@ const Page = () => {
                     <div className="flex items-center justify-auto bg-beige border border-black container w-auto m-10 hover:bg-marron">
                         <a className="font-semibold text-white text-center" href='/profil/creationposte'>Ajouter un article</a>
                     </div>
+                    <div className="flex items-center justify-auto bg-beige border border-black container w-auto m-10 hover:bg-marron">
+                        <a className="font-semibold text-white text-center" href='/dashboard'>Infos du profil</a>
+                    </div>
                 </div>
                 <div className='border-b-2 border-black'>
                     {/* liste des statistique du profil */}

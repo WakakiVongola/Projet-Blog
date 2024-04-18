@@ -9,7 +9,6 @@ const DashboardPage = () => {
     const {data:session,status} = useSession({
         required: true,
     onUnauthenticated() {
-      // The user is not authenticated, handle it here.
     },
     })
     const router = useRouter()
@@ -26,10 +25,9 @@ const DashboardPage = () => {
     }
 
     return (
-        <div>
-            <h1>DashBoard Page</h1>
-            <p>Hi {session?.user?.email}</p>
-            <button onClick={logoutUser}>lougt Page</button>
+        <div className="container flex flex-col items-center">
+            <h1 className="my-5 text-2xl">Bienvenue sur ton profil  {session?.user?.email}</h1>
+            <button onClick={logoutUser} className="bg-red-500 rounded-lg border-4 border-white p-2 hover:bg-red-700 hover:text-white transition duration-300">Se déconnecter</button>
         </div>
     );
 };
