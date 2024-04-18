@@ -14,7 +14,7 @@ export async function POST(request) {
         return new Response("Missing id", { status: 400 })
       }
 
-    await prisma.utilisateur.delete({
+    await prisma.publication.delete({
         where: {
           id: id,
         }

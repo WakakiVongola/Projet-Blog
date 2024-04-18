@@ -52,25 +52,28 @@ export const authOptions = {
     secret: process.env.NEXTAUTH_SECRET,
     debug: process.env.NODE_ENV === 'development',
     calbacks: {
-        async jwt({ token, user}){
+        async jwt({token, user}){
             console.log("jwt :"+user)
             if(user){
-            //     token.id = user.id
-            //     // token.email = user.email
-            //     // token.pseudo = user.pseudo
-            //     // //token.publications =user.publications
-            //     // token.role = user.role
+                return{
+                    ...token,
+                    id:user.id
+                }
+
                 
             }
             return token
         },
-        async session({session, token, user}){
+        async session({session, token}){
             console.log("session"+ token)
-            session.user.id = token.id
-            // session.user.email = token.email
-            // session.user.pseudo = token.pseudo
-            //session.user.publications = token.publications
-            // session.user.role = token.role
+            return{
+                ...session,
+                user:{
+                    ...session.user,
+                    id:token.id
+                }
+            }
+
             return session
         }
     }

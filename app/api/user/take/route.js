@@ -7,6 +7,7 @@ const prisma = new PrismaClient();
 export async function GET(params) {
     const postes = await prisma.utilisateur.findMany({
         select: {
+            id: true,
             pseudo : true,
             email: true,
             motDePasse: true,
