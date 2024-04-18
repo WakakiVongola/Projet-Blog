@@ -3,38 +3,48 @@
 import Image from "next/image";
 import { ArrowSmUpIcon } from '@heroicons/react/outline';
 import useSWR from "swr";
-import Link from "next/link";
+import { useRouter } from 'next/navigation';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 const fetcher = (...args:any) => fetch(...args).then(res => res.json());
 
 export default function Article () {
+    const router = useRouter();
+    const { articleID } = router.query;
+
     const { data, error, isLoading } = useSWR('/api/poste/take', fetcher);
 
     console.log(data);
 
-    const obj = data && data.data && data.data.length > 0 ? data.data[3] : null;
+    const article = data && data.data ? data.data.find(article => article.titre === articleID) : null;
 
     return(
         <div className="bg-blanc">
         <main className="flex flex-col">
-            <div className="text-center py-5">
-                <h1 className="text-5xl">{obj?.titre}</h1>
-            </div>
-            <section className="py-5 flex justify-between">
-                <div className="w-[890px]">
-                    <div className="ml-10 py-5 shadow-2xl rounded-lg mr-5">
-                            <Image className="shadow-2xl rounded-lg mx-auto"
-                                src={obj?.image}
-                                width={798}
-                                height={499}
-                                alt="Lac de Côme"
-                                />
-                        <p className="my-10 mx-auto px-5">
-                            {obj?.contenu}
-                        </p>
-                        <br/>
-                    </div>
+            {article && (
+                <div className="text-center py-5">
+                    <h1 className="text-5xl">{article.titre}</h1>
                 </div>
+            )}
+            <section className="py-5 flex justify-between">
+                {article && (
+                        <div className="w-[890px]">
+                            <div className="ml-10 py-5 shadow-2xl rounded-lg mr-5">
+                                <Image className="shadow-2xl rounded-lg mx-auto"
+                                    src={article.image}
+                                    width={798}
+                                    height={499}
+                                    alt="Lac de Côme"
+                                />
+                                <p className="my-10 mx-auto px-5">
+                                    {article.contenu}
+                                </p>
+                                <br/>
+                            </div>
+                        </div>
+                    )}
                 <div className="bg-beige mr-10 my-2 shadow-2xl rounded-lg flex flex-col">
                     <div className="text-center py-5">
                         <h1 className="font-semibold px-20 text-3xl">Postes recommandés:</h1>

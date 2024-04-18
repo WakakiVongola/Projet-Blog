@@ -92,12 +92,11 @@ const Page = () => {
                             height={60}
                         />
                         {/* nom du profil */}
-                        <a className="text-marron font-bold transition hover:brightness-50" href='/dashboard'>Mathis.Guerin</a>
+                        <a className="text-marron font-bold transition hover:brightness-50" href='/dashboard'>Krusty_LeClown</a>
                     </div>   
                         {/* bouton dashboard */}
-                    <div className="flex items-center justify-auto bg-beige border border-black container w-[10%] m-10
-                    hover:bg-marron">
-                        <a className="font-semibold text-white text-center" href='/dashboard'>Dashboard</a>
+                    <div className="flex items-center justify-auto bg-beige border border-black container w-auto m-10 hover:bg-marron">
+                        <a className="font-semibold text-white text-center" href='/profil/creationposte'>Ajouter un article</a>
                     </div>
                 </div>
                 <div className='border-b-2 border-black'>

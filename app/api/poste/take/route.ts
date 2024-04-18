@@ -7,6 +7,7 @@ const prisma = new PrismaClient();
 export async function GET(params:any) {
     const postes = await prisma.publication.findMany({
         select: {
+            slug: true,    
             titre: true,
             contenu: true,
             image: true,
