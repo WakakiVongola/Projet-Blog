@@ -6,25 +6,27 @@ import useSWR, { mutate } from 'swr';
 const fetcher = (...args) => fetch(...args).then(res => res.json());
 
 export default function Utilisateurs() {
+
   const { data, error, isLoading } = useSWR('/api/user/take', fetcher);
 
-  const handleDelete = async (email) => {
+  const handleDelete = async (id) => {
+    console.log(id)
     try {
       const response = await fetch(`/api/user/delete`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email }), // Pass the email in the request body
+        body: JSON.stringify({ id }),
       });
       if (response.ok) {
         // Refresh data after deletion
         mutate('/api/user/take');
       } else {
-        console.error('Erreur lors de la suppression de l\'utilisateur');
+        console.error('Erreur lors de la suppression de l\'utlisateur', response);
       }
     } catch (error) {
-      console.error('Erreur lors de la suppression de l\'utilisateur :', error);
+      console.error('Erreur lors de la suppression de l\'utilisateur', error);
     }
   };
   
@@ -65,17 +67,21 @@ export default function Utilisateurs() {
           {data && data.data && data.data.map((obj, index) => (
             <div key={index} className="my-4">
               <div className="flex items-center mb-2">
-                <button onClick={() => handleDelete(obj.email)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-4">Supprimer</button>
+                <button onClick={() => handleDelete(obj.id)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-4">Supprimer</button>
                 <div className="mr-4">
-                  <span className="font-semibold">Pseudo:</span>
+                  <span className="font-semibold">Id :</span>
+                  <span>{obj && obj.id}</span>
+                </div>
+                <div className="mr-4">
+                  <span className="font-semibold">Pseudo :</span>
                   <span>{obj && obj.pseudo}</span>
                 </div>
                 <div className="mr-4">
-                  <span className="font-semibold">Email:</span>
+                  <span className="font-semibold">Email :</span>
                   <span>{obj && obj.email}</span>
                 </div>
                 <div>
-                  <span className="font-semibold">Rôle:</span>
+                  <span className="font-semibold">Rôle :</span>
                   <span>{obj && obj.role}</span>
                 </div>
               </div>

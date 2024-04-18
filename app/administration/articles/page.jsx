@@ -6,25 +6,27 @@ import useSWR, { mutate } from 'swr';
 const fetcher = (...args) => fetch(...args).then(res => res.json());
 
 export default function Articles() {
+
   const { data, error, isLoading } = useSWR('/api/articles/take', fetcher);
 
-  const handleDelete = async (slug) => {
+  const handleDelete = async (id) => {
+    console.log(id)
     try {
       const response = await fetch(`/api/articles/delete`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ slug }), // Pass the email in the request body
+        body: JSON.stringify({ id }),
       });
       if (response.ok) {
         // Refresh data after deletion
         mutate('/api/articles/take');
       } else {
-        console.error('Erreur lors de la suppression de l\'utilisateur');
+        console.error('Erreur lors de la suppression de l\'article', response);
       }
     } catch (error) {
-      console.error('Erreur lors de la suppression de l\'utilisateur :', error);
+      console.error('Erreur lors de la suppression de l\'article :', error);
     }
   };
   
@@ -65,19 +67,19 @@ export default function Articles() {
           {data && data.data && data.data.map((obj, index) => (
             <div key={index} className="my-4">
               <div className="flex items-center mb-2">
-                <button onClick={() => handleDelete(obj.slug)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-4">Supprimer</button>
+                <button onClick={() => handleDelete(obj.id)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-4">Supprimer</button>
                 <div className="mr-4">
-                  <span className="font-semibold">Slug : </span>
+                  <span className="font-semibold">Id : </span>
+                  <span>{obj && obj.id}</span>
+                </div>
+                <div className="mr-4">
+                  <span className="font-semibold">Slugs : </span>
                   <span>{obj && obj.slug}</span>
                 </div>
                 <div className="mr-4">
                   <span className="font-semibold">Titre :</span>
                   <span>{obj && obj.titre}</span>
                 </div>
-                {/* <div>
-                  <span className="font-semibold"> :</span>
-                  <span>{obj && obj.image}</span>
-                </div> */}
                 <div>
                   <span className="font-semibold">Auteur :</span>
                   <span>{obj && obj.auteur.pseudo}</span>
